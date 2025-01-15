@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Kanba",
   "resources": {
-    "hash": "sha256-yvgHr3hqPhoPfmuuWVSbJ54PTP0TC+K1Y4Lpj5ZSsC0=",
+    "hash": "sha256-I79nuW/essBM74+8ghDB+WVS6cCFeLRIAPR0yofIX1M=",
     "jsModuleNative": {
       "dotnet.native.8.0.12.5019ia6r61.js": "sha256-B6DNRvFeCUi3jbx9uKpuj+hV9cN0KG4RdZj1FgBZwj8="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "Kanba.wasm": "sha256-e5sgNjndbvecWG/StQKNxsiZi8JPunqOsBQLh2iLFQg=",
+      "Kanba.wasm": "sha256-0mn3BGbN4cacZR1ryYwka72XsGZ0yAjzn2s82IUh10E=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-iTbbGFyAnshueHzy5zCXMmDILd19mwnepns5ZoVxcwc=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-/5OOFd/K385wL8vf3ek7VHw8w16d673/mBxyHdAxXvE=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-rHZy9+rVA/0odJz5cDxEN0vOqFd2KSZZFiMWYomPSlM=",
