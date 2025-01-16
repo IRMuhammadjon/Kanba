@@ -110,10 +110,10 @@
         <ItemRenderer>
             <MudCard Class="ma-3 rounded-lg"
                      Elevation="1"
-                     Style="cursor: pointer; background-color: #333; ;"
+                     Style="cursor: pointer; background-color: #333;"
                      @onclick="@(() => ShowLeadDetails(@context))">
 
-                <MudCardHeader Style="padding:5px;display: flex; justify-content: space-between; align-items: center; gap: 10px; ">
+                <MudCardHeader Style="padding:5px;display: flex; justify-content: space-between; align-items: center; gap: 10px;">
                     <CardHeaderContent >
                         <MudText  Typo="Typo.h6" >
                             @(@context.Name?.Substring(0, Math.Min(@context.Name?.Length ?? 0, 15)))
@@ -249,7 +249,7 @@
             dropInfo.Item.Status = GetStatusForColumn(dropInfo.DropzoneIdentifier);
             dropInfo.Item.ModifiedAt = DateTime.Now;
 
-            await LeadService.UpdateLeadAsync(dropInfo.Item);
+            
 
             // Tartib maqsadida ro'yxatni qayta sort qilamiz
             leads = leads.OrderByDescending(l => l.ModifiedAt).ToList();
@@ -263,7 +263,6 @@
         lead.Status = newStatus;
         lead.ModifiedAt = DateTime.Now;
 
-        await LeadService.UpdateLeadAsync(lead);
 
         leads = leads.OrderByDescending(l => l.ModifiedAt).ToList();
         dropContainer.Refresh();

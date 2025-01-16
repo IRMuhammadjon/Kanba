@@ -61,13 +61,10 @@
             return string.Empty;
         }
 
-        // Regular expression to match and capture digits
         var regex = new Regex(@"(\d{2})[\s\-]?(\d{3})[\s\-]?(\d{4})");
 
-        // Replace the matched digits with the desired format
         var result = regex.Replace(input, "$1 $2 $3");
 
-        // Handle cases where input doesn't match the pattern
         if (result == input)
         {
             return input; // Return original input if it doesn't match the pattern
