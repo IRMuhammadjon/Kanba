@@ -36,7 +36,7 @@ pipeline {
                 // Docker konteynerda loyihani ishga tushirish
                 script {
                     docker.image('mcr.microsoft.com/dotnet/aspnet:6.0').inside {
-                        sh 'dotnet out/YourProjectName.dll'
+                         sh 'dotnet out/YourProjectName.dll'
                     }
                 }
             }
