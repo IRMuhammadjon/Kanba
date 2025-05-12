@@ -1,11 +1,7 @@
 pipeline {
     agent {
-        docker {
-            image 'mcr.microsoft.com/dotnet/sdk:6.0'
-            args '-v /tmp:/tmp'  // Agar kerak bo'lsa, xost va konteyner orasida fayl tizimini ulashing
-        }
+        dockerContainer 'mcr.microsoft.com/dotnet/sdk:6.0'  // Docker imidjini to'g'ri kiriting
     }
-
     stages {
         stage('Checkout') {
             steps {
