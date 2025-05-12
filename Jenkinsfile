@@ -1,13 +1,10 @@
 pipeline {
-    agent {
-        docker {
-            image 'mcr.microsoft.com/dotnet/aspnet:6.0' // Docker image, .NET Core 6.0 uchun
-            args '-p 8080:80' // Portni konteynerga ulash
-        }
-    }
+    agent any // Jenkins barcha agentlarida ishlashni ruxsat beradi (Docker konteynerni ishlatish uchun dockerContainerdan foydalaniladi)
+    
     environment {
-        // Agar kerak bo‘lsa, bu yerga o‘zingizning environment variables’larini qo‘shing
+        // Agar kerak bo'lsa, o'zingizning environment variables'larini qo'shing
     }
+
     stages {
         stage('Checkout') {
             steps {
@@ -15,6 +12,7 @@ pipeline {
                 checkout scm
             }
         }
+
         stage('Build') {
             steps {
                 // .NET Core build qilish
@@ -23,6 +21,7 @@ pipeline {
                 }
             }
         }
+
         stage('Publish') {
             steps {
                 // .NET Core publish qilish
@@ -31,18 +30,23 @@ pipeline {
                 }
             }
         }
+
         stage('Run') {
             steps {
-                // Docker konteyner ichida run qilish
+                // Docker konteynerda loyihani ishga tushirish
                 script {
-                    sh 'dotnet out/Kanba.dll'
+                    docker.image('mcr.microsoft.com/dotnet/aspnet:6.0').inside {
+                        sh 'dotnet out/YourProjectName.dll'
+                    }
                 }
             }
         }
     }
+    
     post {
         always {
-            // Build tugagandan keyin bajariladigan operatsiyalar (masalan, tozalash)
+            // Bu yerda build tugagandan keyin bajariladigan kodlarni yozishingiz mumkin
+            echo 'Build tugadi!'
         }
     }
 }
