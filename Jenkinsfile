@@ -1,9 +1,5 @@
 pipeline {
     agent any // Jenkins barcha agentlarida ishlashni ruxsat beradi (Docker konteynerni ishlatish uchun dockerContainerdan foydalaniladi)
-    
-    environment {
-        // Agar kerak bo'lsa, o'zingizning environment variables'larini qo'shing
-    }
 
     stages {
         stage('Checkout') {
@@ -36,7 +32,7 @@ pipeline {
                 // Docker konteynerda loyihani ishga tushirish
                 script {
                     docker.image('mcr.microsoft.com/dotnet/aspnet:6.0').inside {
-                         sh 'dotnet out/YourProjectName.dll'
+                        sh 'dotnet out/YourProjectName.dll'
                     }
                 }
             }
