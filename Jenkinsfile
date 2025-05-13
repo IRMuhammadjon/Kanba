@@ -1,13 +1,10 @@
 pipeline {
-    agent {
-        docker {
-            image 'mcr.microsoft.com/dotnet/sdk:8.0'
-        }
-    }
+    agent any
+
     stages {
-        stage('Build') {
+        stage('Test') {
             steps {
-                sh 'dotnet --version'
+                echo 'Hello from test!'
             }
         }
     }
